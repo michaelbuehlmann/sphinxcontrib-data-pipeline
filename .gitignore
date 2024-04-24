@@ -1,0 +1,5 @@
+docs/build
+.vscode
+.venv
+**/__pycache__
+.env
