@@ -35,7 +35,7 @@ jobs:
           key: poetry-${{ hashFiles('poetry.lock') }}
           restore-keys:
       - name: Install dependencies
-        run: poetry install
+        run: poetry install --extras=docs
         if: steps.cache.outputs.cache-hit != 'true'
       - name: Debugging information
         run: |

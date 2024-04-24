@@ -14,6 +14,9 @@ in your `conf.py` file.
 Data Products
 ^^^^^^^^^^^^^
 
+A data product can be added with the `data_product` directive.
+The directive has the following options:
+
 .. code-block:: text
 
    .. data_product:: Data
@@ -30,6 +33,9 @@ Data Products
 Drivers
 ^^^^^^^
 
+A driver can be added with the `driver` directive.
+The directive has the following options:
+
 .. code-block:: text
 
    .. driver:: tool
@@ -43,6 +49,10 @@ Drivers
 
       # Command Line Arguments
       tool [options] input_file output_file
+
+For `:inputs:` and `:outputs:` you can specify a list of data products that are
+expected as input or produced as output. Make sure to use the same name as in the
+data product directive.
 
 .. driver:: tool
    :description: Description of `tool`.
@@ -59,6 +69,47 @@ Drivers
 
 Pipeline:
 ---------
+
+A pipeline is specified by a set of drivers and data products that are
+linked together. The following example specifies 4 data products and 2 drivers.
+
+.. code-block:: text
+
+   .. data_product:: Data_A
+      :description: Description of `Data A`.
+      :format: text
+      :file_extension: .txt
+
+   .. data_product:: Data_B
+      :description: Description of `Data B`.
+      :format: text
+      :file_extension: .txt
+
+   .. data_product:: Data_C
+      :description: Description of `Data B`.
+      :format: text
+      :file_extension: .txt
+
+   .. data_product:: Data_D
+      :description: Description of `Data B`.
+      :format: text
+      :file_extension: .txt
+
+   .. driver:: Tool_A
+      :description: Description of `Tool A`.
+      :inputs: Data_A
+      :outputs: Data_B
+
+      # Command Line Arguments
+      Tool_A [options] input_file output_file
+
+   .. driver:: Tool_B
+      :description: Description of `Tool B`.
+      :inputs: Data_B
+      :outputs: [Data_C, Data_D]
+
+      # Command Line Arguments
+      Tool_B [options] input_file output_file
 
 .. data_product:: Data_A
    :description: Description of `Data A`.
@@ -96,4 +147,16 @@ Pipeline:
    # Command Line Arguments
    Tool_B [options] input_file output_file
 
+
+The entire pipeline can be shown in a single diagram by using the `pipeline` directive:
+
+.. code-block:: text
+
+   .. pipeline::
+
+
 .. pipeline::
+
+
+Using YAML files to specify drivers and data products
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
