@@ -1,0 +1,85 @@
+name: sphinx
+on: [push, pull_request, workflow_dispatch]
+
+env:
+  DEFAULT_BRANCH: "master"
+  SPHINXOPTS: "-W --keep-going -T"
+  # ^-- If these SPHINXOPTS are enabled, then be strict about the builds and fail on any warnings
+
+jobs:
+  build-and-deploy:
+    name: Build and gh-pages
+    runs-on: ubuntu-latest
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: "master"
+      # https://github.com/marketplace/actions/setup-python
+      # ^-- This gives info on matrix testing.
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v2
+      - name: Configure Poetry
+        run: |
+          poetry config virtualenvs.in-project true
+      - name: cache virtualenv
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: .venv
+          key: poetry-${{ hashFiles('poetry.lock') }}
+          restore-keys:
+      - name: Install dependencies
+        run: poetry install
+        if: steps.cache.outputs.cache-hit != 'true'
+      - name: Debugging information
+        run: |
+          echo "github.ref:" ${{github.ref}}
+          echo "github.event_name:" ${{github.event_name}}
+          echo "github.head_ref:" ${{github.head_ref}}
+          echo "github.base_ref:" ${{github.base_ref}}
+          set -x
+          git rev-parse --abbrev-ref HEAD
+          git branch
+          git branch -a
+          git remote -v
+          poetry run python -V
+          poetry run pip list --not-required
+          poetry run pip list
+      # Build
+      - uses: ammaraskar/sphinx-problem-matcher@master
+      - name: Build Sphinx docs
+        working-directory: ./docs
+        run: |
+          source ../.venv/bin/activate
+          make dirhtml SPHINXOPTS="-vv"
+          # This fixes broken copy button icons, as explained in
+          #   https://github.com/coderefinery/sphinx-lesson/issues/50
+          #   https://github.com/executablebooks/sphinx-copybutton/issues/110
+          # This can be removed once these PRs are accepted (but the
+          # fixes also need to propagate to other themes):
+          #   https://github.com/sphinx-doc/sphinx/pull/8524
+          #   https://github.com/readthedocs/sphinx_rtd_theme/pull/1025
+          # sed -i 's/url_root="#"/url_root=""/' _build/dirhtml/index.html || true
+
+      # Add the .nojekyll file and redirect
+      - name: nojekyll
+        if: ${{ github.event_name == 'push' }}
+        working-directory: ./docs
+        run: |
+          touch build/dirhtml/.nojekyll
+      # Deploy
+      # https://github.com/peaceiris/actions-gh-pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ success() && github.event_name == 'push' && github.ref == 'refs/heads/$defaultBranch' }}
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build/dirhtml/
+          force_orphan: true
