@@ -59,7 +59,7 @@ class ExternalDriversDirective(SphinxDirective):
         driver_parser = get_driver_parser(self.env.app)
 
         if pathtype == "path":
-            this_path = Path(self.env.docname)
+            this_path = Path(self.env.doc2path(self.env.docname))
             path = this_path.parent / patharg
             with open(path, "r") as f:
                 data = driver_parser(f.read())

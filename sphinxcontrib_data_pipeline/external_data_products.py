@@ -58,7 +58,7 @@ class ExternalDataProductsDirective(SphinxDirective):
         dataproduct_parser = get_data_product_parser(self.env.app)
 
         if pathtype == "path":
-            this_path = Path(self.env.docname)
+            this_path = Path(self.env.doc2path(self.env.docname))
             path = this_path.parent / patharg
             with open(path, "r") as f:
                 data = dataproduct_parser(f.read())

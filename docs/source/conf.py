@@ -19,6 +19,7 @@ extensions = [
     "sphinxcontrib_data_pipeline",
     "sphinxcontrib.mermaid",
     "sphinx_tabs.tabs",
+    "sphinx_toolbox.collapse",
 ]
 
 templates_path = ["_templates"]
@@ -31,6 +32,12 @@ exclude_patterns = []
 # html_theme = "alabaster"
 html_theme = "pydata_sphinx_theme"
 html_static_path = ["_static"]
+
+# workflows parsers
+driver_parser = "sphinxcontrib_data_pipeline.parsers.example_yaml_parser:parse_drivers"
+data_product_parser = (
+    "sphinxcontrib_data_pipeline.parsers.example_yaml_parser:parse_dataproducts"
+)
 
 
 def setup(app: Sphinx):

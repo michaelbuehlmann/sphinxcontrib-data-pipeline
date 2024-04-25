@@ -1,0 +1,49 @@
+drivers:
+  - Tool_X:
+      executable: XXX
+      repository: https://github.com/michaelbuehlmann/sphinxcontrib-data-pipeline
+      contact: Michael Buehlmann
+      usage: |
+        XXX -test
+      inputs:
+        - INPUT_1
+      outputs:
+        - OUTPUT_1
+        - OUTPUT_2
+
+data_products:
+  - INPUT_1:
+      format: text
+      file-extension: .txt
+      description: A text file that is used as input for Tool_X
+
+  - OUTPUT_1:
+      format: CSV
+      file-extension: .csv
+      description: A text file produced by Tool_X
+      fields:
+        - id:
+            description: particle id
+            type: int64
+            units: None
+        - x:
+            description: x coordinate
+            type: float32
+            units: meters
+        - y:
+            description: y coordinate
+            type: float32
+            units: meters
+        - vx:
+            description: x component of velocity
+            type: float32
+            units: meters/second
+        - vy:
+            description: y component of velocity
+            type: float32
+            units: meters/second
+
+  - OUTPUT_2:
+      format: text
+      file-extension: .txt
+      description: A text file produced by Tool_X

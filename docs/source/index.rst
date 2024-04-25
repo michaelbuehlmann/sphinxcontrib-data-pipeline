@@ -158,5 +158,60 @@ The entire pipeline can be shown in a single diagram by using the `pipeline` dir
 .. pipeline::
 
 
-Using YAML files to specify drivers and data products
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Externally Specifying Data Products and Drivers
+-----------------------------------------------
+
+You can specify Data Products and Drivers in a separate file. You will need to
+provide a parser for your file type and register it in the Sphinx ``conf.py`` file
+as:
+
+.. code-block:: python
+
+   # workflows parsers
+   driver_parser = "package.module:parse_driver_function"
+   data_product_parser = "package.module:parse_dataproducts_function"
+
+
+See the `example_yaml_parser.py <https://github.com/michaelbuehlmann/sphinxcontrib-data-pipeline/blob/master/sphinxcontrib_data_pipeline/parsers/example_yaml_parser.py>`
+file for an example of how to implement a parser for a yaml file.
+
+You can then use the ``.. external_data_products::`` and ``.. external_drivers::`` directives to include the data products and drivers from the external file.
+For example:
+
+.. code-block:: text
+
+   .. external_data_products:: path/to/specification_file.yaml
+      :type: path
+
+   .. external_drivers:: path/to/specification_file.yaml
+      :type: path
+
+The files can also be hosted in an external repository:
+
+.. code-block:: text
+
+   .. external_data_products:: path/in/repository.yaml
+    :type: git
+    :git-branch: master
+    :git-url: https://url_to_git_repo.com/repository.git
+
+Example
+^^^^^^^
+
+The following example shows how to use the external data products and drivers directives. We specify a pipeline in
+`example_specs.yaml <https://github.com/michaelbuehlmann/sphinxcontrib-data-pipeline/blob/master/sphinxcontrib_data_pipeline/docs/source/example_specs.yaml>`_.
+and include it here with the following code:
+
+.. code-block:: text
+
+   .. external_data_products:: example_specs.yaml
+      :type: path
+
+   .. external_drivers:: example_specs.yaml
+      :type: path
+
+.. external_data_products:: ./example_specs.yaml
+   :type: path
+
+.. external_drivers:: ./example_specs.yaml
+   :type: path
