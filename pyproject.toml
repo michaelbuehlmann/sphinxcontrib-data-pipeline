@@ -1,6 +1,6 @@
 [tool.poetry]
+version = "0.2.0"
 name = "sphinxcontrib-data-pipeline"
-version = "0.1.0"
 description = "This extension allows you to document data processing pipelines that connect tools (\"drivers\") and corresponding data products"
 authors = ["Michael Buehlmann <buehlmann.michi@gmail.com>"]
 license = "MIT"
