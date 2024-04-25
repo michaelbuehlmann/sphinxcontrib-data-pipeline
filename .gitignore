@@ -3,3 +3,5 @@ docs/build
 .venv
 **/__pycache__
 .env
+*.whl
+*.tar.gz
