@@ -1,0 +1,11 @@
+table.full-width {
+    width: 100%;
+}
+
+table.full-width td {
+    white-space: normal !important;
+}
+
+.admonition .literal-block-wrapper {
+    width: calc(100% - 2.8rem) !important;
+}

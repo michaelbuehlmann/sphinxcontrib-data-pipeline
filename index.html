@@ -1,0 +1,1079 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>sphinxcontrib-data-pipeline &#8212; sphinxcontrib-data-pipeline  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=24a6d738" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=187304be"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/tabs.js?v=3030b3cb"></script>
+    <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="https://unpkg.com/d3/dist/d3.min.js"></script>
+    <script>
+                window.addEventListener("load", function () {
+                  var svgs = d3.selectAll(".mermaid#id-pipeline-7572c00e-9751-4aec-9af5-452908cf0539 svg");
+                  svgs.each(function() {
+                    var svg = d3.select(this);
+                    svg.html("<g>" + svg.html() + "</g>");
+                    var inner = svg.select("g");
+                    var zoom = d3.zoom().on("zoom", function(event) {
+                      inner.attr("transform", event.transform);
+                    });
+                    svg.call(zoom);
+                  });
+                });
+                </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="index" title="Index" href="genindex/" />
+    <link rel="search" title="Search" href="search/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sphinxcontrib-data-pipeline  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="sphinxcontrib-data-pipeline">
+<h1>sphinxcontrib-data-pipeline<a class="headerlink" href="#sphinxcontrib-data-pipeline" title="Link to this heading">#</a></h1>
+<p>This extension allows you to document data processing pipelines that connect
+tools (“drivers”) and corresponding data products in sphinx.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/michaelbuehlmann/sphinxcontrib-data-pipeline">Repository</a></p></li>
+<li><p><a class="reference external" href="https://michaelbuehlmann.github.io/sphinxcontrib-data-pipeline">Documentation</a></p></li>
+</ul>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>You can install the extension via pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinxcontrib-data-pipeline
+</pre></div>
+</div>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
+<p>To use this extension, add the following extensions to the <cite>extensions</cite> list
+in your <cite>conf.py</cite> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="o">...</span>
+   <span class="s2">&quot;sphinxcontrib_data_pipeline&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;sphinxcontrib.mermaid&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;sphinx_tabs.tabs&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;sphinx_toolbox.collapse&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<section id="data-products">
+<h3>Data Products<a class="headerlink" href="#data-products" title="Link to this heading">#</a></h3>
+<p>A data product can be added with the <cite>data_product</cite> directive.
+The directive has the following options:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. data_product:: Data
+   :description: Description of `Data A`.
+   :format: CSV
+   :file_extension: .csv
+</pre></div>
+</div>
+<div class="admonition" id="data-product-Data">
+<p class="admonition-title">Data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Description of <cite>Data A</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Data Format<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>CSV</p>
+</p>
+</dd>
+<dt class="field-odd">File Extension<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>.csv</p>
+</p>
+</dd>
+</dl>
+<figure class="align-center" id="id1">
+<div class="mermaid">
+            flowchart LR
+ Data([Data])
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Data</span></code> producers and consumers</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="drivers">
+<h3>Drivers<a class="headerlink" href="#drivers" title="Link to this heading">#</a></h3>
+<p>A driver can be added with the <cite>driver</cite> directive.
+The directive has the following options:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. driver:: tool
+   :description: Description of `tool`.
+   :executable: tool
+   :repository: https:&lt;path_to_repository&gt;.com
+   :documentation: https:&lt;path_to_documentation&gt;.com
+   :contact: Max Mustermann
+   :inputs:
+   :outputs:
+
+   # Command Line Arguments
+   tool [options] input_file output_file
+</pre></div>
+</div>
+<p>For <cite>:inputs:</cite> and <cite>:outputs:</cite> you can specify a list of data products that are
+expected as input or produced as output. Make sure to use the same name as in the
+data product directive.</p>
+<div class="admonition" id="driver-tool">
+<p class="admonition-title">tool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Description of <cite>tool</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Executable<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><code class="docutils literal notranslate"><span class="pre">tool</span></code></p>
+</p>
+</dd>
+<dt class="field-odd">Repository<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>https:&lt;path_to_repository&gt;.com</p>
+</p>
+</dd>
+<dt class="field-even">Documentation<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>https:&lt;path_to_documentation&gt;.com</p>
+</p>
+</dd>
+<dt class="field-odd">Contact<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Max Mustermann</p>
+</p>
+</dd>
+</dl>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">tool command line arguments</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Command Line Arguments</span>
+tool_A<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id3">
+<div class="mermaid">
+            flowchart LR
+tool{{tool}}:::driverClass
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">tool</span></code> inputs/outputs</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="pipeline">
+<h2>Pipeline:<a class="headerlink" href="#pipeline" title="Link to this heading">#</a></h2>
+<p>A pipeline is specified by a set of drivers and data products that are
+linked together. The following example specifies 4 data products and 2 drivers.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. data_product:: Data_A
+   :description: Description of `Data A`.
+   :format: text
+   :file_extension: .txt
+
+.. data_product:: Data_B
+   :description: Description of `Data B`.
+   :format: text
+   :file_extension: .txt
+
+.. data_product:: Data_C
+   :description: Description of `Data B`.
+   :format: text
+   :file_extension: .txt
+
+.. data_product:: Data_D
+   :description: Description of `Data B`.
+   :format: text
+   :file_extension: .txt
+
+.. driver:: Tool_A
+   :description: Description of `Tool A`.
+   :inputs: Data_A
+   :outputs: Data_B
+
+   # Command Line Arguments
+   Tool_A [options] input_file output_file
+
+.. driver:: Tool_B
+   :description: Description of `Tool B`.
+   :inputs: Data_B
+   :outputs: [Data_C, Data_D]
+
+   # Command Line Arguments
+   Tool_B [options] input_file output_file
+</pre></div>
+</div>
+<div class="admonition" id="data-product-Data_A">
+<p class="admonition-title">Data_A</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Description of <cite>Data A</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Data Format<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>text</p>
+</p>
+</dd>
+<dt class="field-odd">File Extension<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>.txt</p>
+</p>
+</dd>
+</dl>
+<figure class="align-center" id="id4">
+<div class="mermaid">
+            flowchart LR
+ Data_A([Data_A])
+ Tool_A{{Tool_A}}:::driverClass
+ click Tool_A href &quot;#driver-Tool_A&quot; &quot;go to driver&quot;
+ Data_A --&gt; Tool_A
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Data_A</span></code> producers and consumers</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition" id="data-product-Data_B">
+<p class="admonition-title">Data_B</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Description of <cite>Data B</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Data Format<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>text</p>
+</p>
+</dd>
+<dt class="field-odd">File Extension<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>.txt</p>
+</p>
+</dd>
+</dl>
+<figure class="align-center" id="id5">
+<div class="mermaid">
+            flowchart LR
+ Data_B([Data_B])
+ Tool_A{{Tool_A}}:::driverClass
+ click Tool_A href &quot;#driver-Tool_A&quot; &quot;go to driver&quot;
+ Tool_B{{Tool_B}}:::driverClass
+ click Tool_B href &quot;#driver-Tool_B&quot; &quot;go to driver&quot;
+ Data_B --&gt; Tool_B
+ Tool_A --&gt; Data_B
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Data_B</span></code> producers and consumers</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition" id="data-product-Data_C">
+<p class="admonition-title">Data_C</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Description of <cite>Data B</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Data Format<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>text</p>
+</p>
+</dd>
+<dt class="field-odd">File Extension<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>.txt</p>
+</p>
+</dd>
+</dl>
+<figure class="align-center" id="id6">
+<div class="mermaid">
+            flowchart LR
+ Data_C([Data_C])
+ Tool_B{{Tool_B}}:::driverClass
+ click Tool_B href &quot;#driver-Tool_B&quot; &quot;go to driver&quot;
+ Tool_B --&gt; Data_C
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Data_C</span></code> producers and consumers</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition" id="data-product-Data_D">
+<p class="admonition-title">Data_D</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Description of <cite>Data B</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Data Format<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>text</p>
+</p>
+</dd>
+<dt class="field-odd">File Extension<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>.txt</p>
+</p>
+</dd>
+</dl>
+<figure class="align-center" id="id7">
+<div class="mermaid">
+            flowchart LR
+ Data_D([Data_D])
+ Tool_B{{Tool_B}}:::driverClass
+ click Tool_B href &quot;#driver-Tool_B&quot; &quot;go to driver&quot;
+ Tool_B --&gt; Data_D
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Data_D</span></code> producers and consumers</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition" id="driver-Tool_A">
+<p class="admonition-title">Tool_A</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Description of <cite>Tool A</cite>.</p>
+</p>
+</dd>
+</dl>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Tool_A command line arguments</span><a class="headerlink" href="#id8" title="Link to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Command Line Arguments</span>
+Tool_A<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>input_file<span class="w"> </span>output_file
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id9">
+<div class="mermaid">
+            flowchart LR
+Tool_A{{Tool_A}}:::driverClass
+ Data_A([Data_A])
+ click Data_A href &quot;#data-product-Data_A&quot; &quot;go to data product&quot;
+ Data_B([Data_B])
+ click Data_B href &quot;#data-product-Data_B&quot; &quot;go to data product&quot;
+ Data_A --&gt; Tool_A
+ Tool_A --&gt; Data_B
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Tool_A</span></code> inputs/outputs</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition" id="driver-Tool_B">
+<p class="admonition-title">Tool_B</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Description of <cite>Tool B</cite>.</p>
+</p>
+</dd>
+</dl>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Tool_B command line arguments</span><a class="headerlink" href="#id10" title="Link to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Command Line Arguments</span>
+Tool_B<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>input_file<span class="w"> </span>output_file
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id11">
+<div class="mermaid">
+            flowchart LR
+Tool_B{{Tool_B}}:::driverClass
+ Data_B([Data_B])
+ click Data_B href &quot;#data-product-Data_B&quot; &quot;go to data product&quot;
+ Data_C([Data_C])
+ click Data_C href &quot;#data-product-Data_C&quot; &quot;go to data product&quot;
+ Data_D([Data_D])
+ click Data_D href &quot;#data-product-Data_D&quot; &quot;go to data product&quot;
+ Data_B --&gt; Tool_B
+ Tool_B --&gt; Data_C
+ Tool_B --&gt; Data_D
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Tool_B</span></code> inputs/outputs</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<p>The entire pipeline can be shown in a single diagram by using the <cite>pipeline</cite> directive:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. pipeline::
+</pre></div>
+</div>
+<div class="full-width docutils container">
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0" name="Full Pipeline" role="tab" tabindex="0">Full Pipeline</button></div><div aria-labelledby="tab-0" class="sphinx-tabs-panel" id="panel-0" name="0" role="tabpanel" tabindex="0"><figure class="align-center" id="id12">
+<div id="id-pipeline-7572c00e-9751-4aec-9af5-452908cf0539" class="mermaid">
+            flowchart TD
+ Data([Data])
+ click Data href &quot;#data-product-Data&quot; &quot;go to data product&quot;
+ Data_A([Data_A])
+ click Data_A href &quot;#data-product-Data_A&quot; &quot;go to data product&quot;
+ Data_B([Data_B])
+ click Data_B href &quot;#data-product-Data_B&quot; &quot;go to data product&quot;
+ Data_C([Data_C])
+ click Data_C href &quot;#data-product-Data_C&quot; &quot;go to data product&quot;
+ Data_D([Data_D])
+ click Data_D href &quot;#data-product-Data_D&quot; &quot;go to data product&quot;
+ INPUT_1([INPUT_1])
+ click INPUT_1 href &quot;#data-product-INPUT_1&quot; &quot;go to data product&quot;
+ OUTPUT_1([OUTPUT_1])
+ click OUTPUT_1 href &quot;#data-product-OUTPUT_1&quot; &quot;go to data product&quot;
+ OUTPUT_2([OUTPUT_2])
+ click OUTPUT_2 href &quot;#data-product-OUTPUT_2&quot; &quot;go to data product&quot;
+tool{{tool}}:::driverClass
+ click tool href &quot;#driver-tool&quot; &quot;go to driver&quot;
+Tool_A{{Tool_A}}:::driverClass
+ click Tool_A href &quot;#driver-Tool_A&quot; &quot;go to driver&quot;
+Tool_B{{Tool_B}}:::driverClass
+ click Tool_B href &quot;#driver-Tool_B&quot; &quot;go to driver&quot;
+Tool_X{{Tool_X}}:::driverClass
+ click Tool_X href &quot;#driver-Tool_X&quot; &quot;go to driver&quot;
+ Data_A --&gt; Tool_A
+ Tool_A --&gt; Data_B
+ Data_B --&gt; Tool_B
+ Tool_B --&gt; Data_C
+ Tool_B --&gt; Data_D
+ INPUT_1 --&gt; Tool_X
+ Tool_X --&gt; OUTPUT_1
+ Tool_X --&gt; OUTPUT_2
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div>
+        <figcaption>
+<p><span class="caption-text">exaworkflows pipeline</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div></div>
+</div>
+</section>
+<section id="externally-specifying-data-products-and-drivers">
+<h2>Externally Specifying Data Products and Drivers<a class="headerlink" href="#externally-specifying-data-products-and-drivers" title="Link to this heading">#</a></h2>
+<p>You can specify Data Products and Drivers in a separate file. You will need to
+provide a parser for your file type and register it in the Sphinx <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file
+as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># workflows parsers</span>
+<span class="n">driver_parser</span> <span class="o">=</span> <span class="s2">&quot;package.module:parse_driver_function&quot;</span>
+<span class="n">data_product_parser</span> <span class="o">=</span> <span class="s2">&quot;package.module:parse_dataproducts_function&quot;</span>
+</pre></div>
+</div>
+<p>See the <cite>example_yaml_parser.py &lt;https://github.com/michaelbuehlmann/sphinxcontrib-data-pipeline/blob/master/sphinxcontrib_data_pipeline/parsers/example_yaml_parser.py&gt;</cite>
+file for an example of how to implement a parser for a yaml file.</p>
+<p>You can then use the <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">external_data_products::</span></code> and <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">external_drivers::</span></code> directives to include the data products and drivers from the external file.
+For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. external_data_products:: path/to/specification_file.yaml
+   :type: path
+
+.. external_drivers:: path/to/specification_file.yaml
+   :type: path
+</pre></div>
+</div>
+<p>The files can also be hosted in an external repository:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. external_data_products:: path/in/repository.yaml
+ :type: git
+ :git-branch: master
+ :git-url: https://url_to_git_repo.com/repository.git
+</pre></div>
+</div>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>The following example shows how to use the external data products and drivers directives. We specify a pipeline in
+<a class="reference external" href="https://github.com/michaelbuehlmann/sphinxcontrib-data-pipeline/blob/master/sphinxcontrib_data_pipeline/docs/source/example_specs.yaml">example_specs.yaml</a>.
+and include it here with the following code:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. external_data_products:: example_specs.yaml
+   :type: path
+
+.. external_drivers:: example_specs.yaml
+   :type: path
+</pre></div>
+</div>
+<div class="admonition" id="data-product-INPUT_1">
+<span id="external-data-products-./example_specs.yaml"></span><p class="admonition-title">INPUT_1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>A text file that is used as input for Tool_X</p>
+</p>
+</dd>
+<dt class="field-even">Data Format<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>text</p>
+</p>
+</dd>
+<dt class="field-odd">File Extension<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p><code class="docutils literal notranslate"><span class="pre">.txt</span></code></p>
+</p>
+</dd>
+</dl>
+<figure class="align-center" id="id13">
+<div class="mermaid">
+            flowchart LR
+ INPUT_1([INPUT_1])
+ Tool_X{{Tool_X}}:::driverClass
+ click Tool_X href &quot;#driver-Tool_X&quot; &quot;go to driver&quot;
+ INPUT_1 --&gt; Tool_X
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">INPUT_1</span></code> producers and consumers</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="admonition" id="data-product-OUTPUT_1">
+<p class="admonition-title">OUTPUT_1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>A text file produced by Tool_X</p>
+</p>
+</dd>
+<dt class="field-even">Data Format<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>CSV</p>
+</p>
+</dd>
+<dt class="field-odd">File Extension<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p><code class="docutils literal notranslate"><span class="pre">.csv</span></code></p>
+</p>
+</dd>
+</dl>
+<figure class="align-center" id="id14">
+<div class="mermaid">
+            flowchart LR
+ OUTPUT_1([OUTPUT_1])
+ Tool_X{{Tool_X}}:::driverClass
+ click Tool_X href &quot;#driver-Tool_X&quot; &quot;go to driver&quot;
+ Tool_X --&gt; OUTPUT_1
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">OUTPUT_1</span></code> producers and consumers</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<details>
+<summary>Data Fields</summary><table class="table-sm table">
+<thead>
+<tr class="row-odd"><th class="head"><div class="docutils container">
+<p>Field</p>
+</div>
+</th>
+<th class="head"><div class="docutils container">
+<p>Type</p>
+</div>
+</th>
+<th class="head"><div class="docutils container">
+<p>Units</p>
+</div>
+</th>
+<th class="head"><div class="docutils container">
+<p>Description</p>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="docutils container">
+<p>id</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>int64</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>None</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>particle id</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="docutils container">
+<p>x</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>float32</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>meters</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>x coordinate</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="docutils container">
+<p>y</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>float32</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>meters</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>y coordinate</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="docutils container">
+<p>vx</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>float32</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>meters/second</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>x component of velocity</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="docutils container">
+<p>vy</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>float32</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>meters/second</p>
+</div>
+</td>
+<td><div class="docutils container">
+<p>y component of velocity</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</details></div>
+<div class="admonition" id="data-product-OUTPUT_2">
+<p class="admonition-title">OUTPUT_2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Description<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>A text file produced by Tool_X</p>
+</p>
+</dd>
+<dt class="field-even">Data Format<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>text</p>
+</p>
+</dd>
+<dt class="field-odd">File Extension<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p><code class="docutils literal notranslate"><span class="pre">.txt</span></code></p>
+</p>
+</dd>
+</dl>
+<figure class="align-center" id="id15">
+<div class="mermaid">
+            flowchart LR
+ OUTPUT_2([OUTPUT_2])
+ Tool_X{{Tool_X}}:::driverClass
+ click Tool_X href &quot;#driver-Tool_X&quot; &quot;go to driver&quot;
+ Tool_X --&gt; OUTPUT_2
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">OUTPUT_2</span></code> producers and consumers</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<section id="driver-Tool_X-heading">
+<span id="external-drivers-./example_specs.yaml"></span><h4>Tool_X<a class="headerlink" href="#driver-Tool_X-heading" title="Link to this heading">#</a></h4>
+<div class="admonition" id="driver-Tool_X">
+<p class="admonition-title">Tool_X</p>
+<dl class="field-list simple">
+<dt class="field-odd">Executable<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p><code class="docutils literal notranslate"><span class="pre">XXX</span></code></p>
+</p>
+</dd>
+<dt class="field-even">Repository<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><a class="github reference external" href="https://github.com/michaelbuehlmann/sphinxcontrib-data-pipeline">michaelbuehlmann/sphinxcontrib-data-pipeline</a></p>
+</p>
+</dd>
+<dt class="field-odd">Contact<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Michael Buehlmann</p>
+</p>
+</dd>
+</dl>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Tool_X command line arguments</span><a class="headerlink" href="#id16" title="Link to this code">#</a></div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>XXX<span class="w"> </span>-test
+</pre></div>
+</div>
+</div>
+<figure class="align-center" id="id17">
+<div class="mermaid">
+            flowchart LR
+Tool_X{{Tool_X}}:::driverClass
+ INPUT_1([INPUT_1])
+ click INPUT_1 href &quot;#data-product-INPUT_1&quot; &quot;go to data product&quot;
+ OUTPUT_1([OUTPUT_1])
+ click OUTPUT_1 href &quot;#data-product-OUTPUT_1&quot; &quot;go to data product&quot;
+ OUTPUT_2([OUTPUT_2])
+ click OUTPUT_2 href &quot;#data-product-OUTPUT_2&quot; &quot;go to data product&quot;
+ INPUT_1 --&gt; Tool_X
+ Tool_X --&gt; OUTPUT_1
+ Tool_X --&gt; OUTPUT_2
+ classDef driverClass fill:#f96,color:black,stroke:#854c30;
+        </div><figcaption>
+<p><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Tool_X</span></code> inputs/outputs</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-products">Data Products</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#drivers">Drivers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline">Pipeline:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#externally-specifying-data-products-and-drivers">Externally Specifying Data Products and Drivers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#driver-Tool_X-heading">Tool_X</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/index.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Michael Buehlmann.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
