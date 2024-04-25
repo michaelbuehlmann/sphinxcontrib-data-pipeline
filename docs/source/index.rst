@@ -5,11 +5,33 @@ sphinxcontrib-data-pipeline
 This extension allows you to document data processing pipelines that connect
 tools ("drivers") and corresponding data products in sphinx.
 
+* `Repository <https://github.com/michaelbuehlmann/sphinxcontrib-data-pipeline>`_
+* `Documentation <https://michaelbuehlmann.github.io/sphinxcontrib-data-pipeline>`_
+
+Installation
+------------
+
+You can install the extension via pip:
+
+.. code-block:: bash
+
+   pip install sphinxcontrib-data-pipeline
+
 Getting Started
 ---------------
 
-To use this extension, add `sphinxcontrib_data_pipeline`  and `sphinxcontrib.mermaid` to the `extensions` list
-in your `conf.py` file.
+To use this extension, add the following extensions to the `extensions` list
+in your `conf.py` file:
+
+.. code-block:: python
+
+   extensions = [
+      ...
+      "sphinxcontrib_data_pipeline",
+      "sphinxcontrib.mermaid",
+      "sphinx_tabs.tabs",
+      "sphinx_toolbox.collapse"
+   ]
 
 Data Products
 ^^^^^^^^^^^^^
